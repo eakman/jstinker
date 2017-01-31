@@ -16,7 +16,6 @@ class NavBar extends Component {
 
   handleClick() {
     this.clearOldHtml();
-
     const style = document.createElement('style');
     style.innerHTML = this.props.css;
 
@@ -25,6 +24,7 @@ class NavBar extends Component {
                     doThis();`
     script.innerHTML = inner;
     const body = document.getElementsByTagName('iframe')[0].contentDocument.getElementsByTagName('body')[0];
+    body.innerHTML = this.props.html;
     body.appendChild(style);
     body.appendChild(script);
 

@@ -35,12 +35,14 @@ body {
   flex-direction: column;
   margin: auto;
   height: 560px;
-  width: 100%;
+  width: 50%;
+  /*min-width: 50px;*/
   border: 1px solid rgb(196, 205, 208);
 }
 
 #container-left {
   border-right: none;
+
 }
 
 #container-right {
@@ -52,7 +54,7 @@ body {
   width: 100%;
   height: 278.5px;
   min-height: 59px;
-  max-height: 500px;
+  max-height: 499px;
   overflow: hidden;
 }
 
