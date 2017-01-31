@@ -14,10 +14,10 @@ class HorizontalSplit extends Component {
     const container = e.target.parentElement;
     const topPane = container.firstChild.children[1];
     const bottomPane =
-    container.lastChild.className === 'ReactCodeMirror'
+    container.lastChild.className.split(' ')[0] === 'ReactCodeMirror'
     ? container.lastChild.children[1] : container.lastChild;
     const iframe = document.getElementsByTagName('iframe')[0];
-    if (bottomPane.className === "CodeMirror cm-s-default CodeMirror-wrap") {
+    if (bottomPane.className.split(' ')[0] === "CodeMirror" || bottomPane.className.split(' ')[0] === 'ReactCodeMirror') {
       this.leftResize(split, container, topPane, bottomPane);
     } else {
       this.rightResize(split, container, topPane, bottomPane, iframe);
@@ -26,8 +26,8 @@ class HorizontalSplit extends Component {
 
   leftResize(split, container, topPane, bottomPane) {
     container.addEventListener('mousemove', function listener(e1) {
-      topPane.style.height = `${e1.pageY - container.offsetTop}px`;
-      bottomPane.style.height = `${(container.offsetHeight + container.offsetTop) - e1.pageY}px`;
+      topPane.style.height = `${e1.pageY - container.offsetTop - 1}px`;
+      bottomPane.style.height = `${(container.offsetHeight + container.offsetTop - 2) - e1.pageY}px`;
       container.addEventListener('mouseup', (e2) => {
         container.removeEventListener('mousemove', listener);
       });

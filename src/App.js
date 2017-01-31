@@ -56,7 +56,7 @@ class App extends Component {
                 lineNumbers: true,
                 mode: "htmlembedded",
                 lineWrapping: true }} onChange={this.updateHTML} />
-            <HorizontalSplit></HorizontalSplit>
+              <HorizontalSplit></HorizontalSplit>
             <CodeMirror options={{
               lineNumbers: true,
               mode: "javascript",
