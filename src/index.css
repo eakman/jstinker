@@ -119,6 +119,7 @@ iframe body {
   vertical-align: middle;
   line-height: 50px;
   padding-right: 10px;
+  user-select: none; 
 }
 
 #run:hover {
