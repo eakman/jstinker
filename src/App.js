@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import CodeMirror from 'react-codemirror';
 import NavBar from './navbar';
-import logo from './logo.svg';
 import HorizontalSplit from './splitters/horizontal_split';
 import VerticalSplit from './splitters/vertical_split';
 import './App.css';
@@ -26,34 +25,23 @@ class App extends Component {
   updateHTML(newCode) {
     this.setState({
         html: newCode,
-    }, () => {
-      console.log(this.state.html)
     });
   }
 
   updateJS(newCode) {
     this.setState({
         javascript: newCode,
-    }, () => {
-      console.log(this.state.javascript)
     });
   }
 
   updateCSS(newCode) {
     this.setState({
         css: newCode,
-    }, () => {
-      console.log(this.state.css)
     });
   }
 
 
   render() {
-    var options = {
-      lineNumbers: true,
-      mode: "javascript",
-      lineWrapping: true
-    };
     return (
       <div>
         <NavBar html={this.state.html}
