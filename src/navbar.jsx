@@ -8,26 +8,25 @@ class NavBar extends Component {
   }
 
   clearOldHtml() {
-    // debugger
     const myNode = document.getElementsByTagName('iframe')[0].contentDocument.getElementsByTagName('body')[0];
     while (myNode.firstChild) {
       myNode.removeChild(myNode.firstChild);
     }
-    const oldScript = document.getElementsByTagName('iframe')[0].contentDocument.getElementsByClassName('my-script')[0];
-    if (oldScript){
-      oldScript.remove();
-    }
-    // document.getElementsByTagName('iframe')[0].contentWindow.location.reload();
   }
 
   handleClick() {
     this.clearOldHtml();
+
+    const style = document.createElement('style');
+    style.innerHTML = this.props.css;
+
     const script = document.createElement('script');
-    script.setAttribute('class', 'my-script');
     const inner = `function doThis() { ${this.props.javascript} };
                     doThis();`
     script.innerHTML = inner;
-    document.getElementsByTagName('iframe')[0].contentDocument.getElementsByTagName('body')[0].appendChild(script);
+    const body = document.getElementsByTagName('iframe')[0].contentDocument.getElementsByTagName('body')[0];
+    body.appendChild(style);
+    body.appendChild(script);
 
   }
 
