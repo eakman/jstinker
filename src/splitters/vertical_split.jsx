@@ -23,9 +23,9 @@ class VerticalSplit extends Component {
       });
     }
     function listener1(e1) {
-      leftContainer.style.width = `${leftContainer.offsetWidth + e1.offsetX}px`;
-      rightContainer.style.width = `${rightContainer.offsetWidth - e1.offsetX}px`;
-      iframe.style.width = `${rightContainer.offsetWidth - e1.offsetX}px`;
+      leftContainer.style.width = `${leftContainer.offsetWidth + e1.movementX}px`;
+      rightContainer.style.width = `${rightContainer.offsetWidth - e1.movementX}px`;
+      iframe.style.width = `${rightContainer.offsetWidth - e1.movementX}px`;
       iframe.contentDocument.addEventListener('mouseup', (e2) => {
         iframe.contentDocument.removeEventListener('mousemove', listener1);
         paneWindow.removeEventListener('mousemove', listener);
