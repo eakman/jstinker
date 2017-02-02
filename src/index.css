@@ -17,7 +17,8 @@ body {
   display: flex;
   flex-direction: row;
   float: right;
-  width: 900px;
+  /*width: 900px;*/
+  width: 85%;
   background: rgb(240, 242, 244);
 }
 

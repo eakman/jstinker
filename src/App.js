@@ -44,7 +44,6 @@ class App extends Component {
   render() {
     return (
       <div>
-
         <NavBar html={this.state.html}
           javascript={this.state.javascript}
           css={this.state.css}></NavBar>
@@ -53,7 +52,6 @@ class App extends Component {
         </aside>
         <div id="pane-window">
           <div className="container" id="container-left">
-
             <CodeMirror options={{
                 lineNumbers: true,
                 mode: "htmlembedded",
@@ -68,15 +66,14 @@ class App extends Component {
           <VerticalSplit />
 
           <div className="container" id="container-right">
-
             <CodeMirror options={{
               lineNumbers: true,
               mode: "css",
               lineWrapping: true }} onChange={this.updateCSS} />
 
             <HorizontalSplit></HorizontalSplit>
-            <div className="pane">
 
+            <div className="pane">
               <iframe id="bottom-pane-right" height="100%" width="100%" frameBorder="0" data-crossorigin="y">
               </iframe>
             </div>
