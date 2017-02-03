@@ -9,13 +9,36 @@ require('../node_modules/codemirror/mode/javascript/javascript');
 require('../node_modules/codemirror/mode/css/css');
 require('../node_modules/codemirror/mode/htmlembedded/htmlembedded');
 
+const htmlString = "<div id='my-div'></div>";
+
+const javaScriptString =
+"const myDiv = document.getElementById('my-div');\n\n" +
+"window.setInterval(() => {\n" +
+"   myDiv.style.left = `${(myDiv.offsetLeft + 1) % document.body.offsetWidth}`;\n" +
+"}, 30);\n \n" +
+"window.setInterval(() => {\n" +
+"   myDiv.style.top = `${ myDiv.offsetTop * (100 * Math.random()) % (document.body.offsetHeight - myDiv.offsetHeight)}px`;\n" +
+"}, 1000);";
+
+const cssString =
+`#my-div {
+  display: block;
+  position: relative;
+  height: 40px;
+  width: 40px;
+  border: 1px solid black;
+  border-radius: 50%;
+  transition: top 2s ease 0s;
+  top: 0;
+}`;
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      html: "",
-      javascript: "",
-      css: ""
+      html: htmlString,
+      javascript: javaScriptString,
+      css: cssString
     }
     this.updateHTML = this.updateHTML.bind(this);
     this.updateJS = this.updateJS.bind(this);
@@ -52,12 +75,12 @@ class App extends Component {
         </aside>
         <div id="pane-window">
           <div className="container" id="container-left">
-            <CodeMirror options={{
+            <CodeMirror value={this.state.html} options={{
                 lineNumbers: true,
                 mode: "htmlembedded",
                 lineWrapping: true }} onChange={this.updateHTML}></CodeMirror>
               <HorizontalSplit></HorizontalSplit>
-            <CodeMirror options={{
+            <CodeMirror value={this.state.javascript} options={{
               lineNumbers: true,
               mode: "javascript",
               lineWrapping: true }} onChange={this.updateJS} />
@@ -66,7 +89,7 @@ class App extends Component {
           <VerticalSplit />
 
           <div className="container" id="container-right">
-            <CodeMirror options={{
+            <CodeMirror value={this.state.css} options={{
               lineNumbers: true,
               mode: "css",
               lineWrapping: true }} onChange={this.updateCSS} />

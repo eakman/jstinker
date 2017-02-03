@@ -33,7 +33,7 @@ class NavBar extends Component {
   render () {
     return (
       <div className="nav-bar">
-        <h1 className="logo"><span id="j">j</span>sTinker</h1>
+        <h1 className="logo"><span id="js">js</span>Tinker</h1>
         <button id="run" onClick={this.handleClick}>
           <div className="bts bt-play">
             &#x25b7;

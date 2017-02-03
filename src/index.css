@@ -9,17 +9,18 @@ body {
   font-size: 13px;
   position: relative;
   z-index: 300;
-  box-shadow: -1px 1px 4px #88886D;
-  /*box-shadow: 0 0 5px rgba(57, 70, 78, 0.2);*/
+  /*box-shadow: -1px 1px 4px #88886D;*/
+  box-shadow: 0 0 5px rgba(57, 70, 78, 0.2);
 }
 
 #pane-window {
   display: flex;
   flex-direction: row;
   float: right;
-  /*width: 900px;*/
   width: 85%;
   background: rgb(240, 242, 244);
+  border: 1px solid rgb(228, 221, 233);
+  border-top: none;
 }
 
 #split-vert {
@@ -38,7 +39,9 @@ body {
   height: 560px;
   width: 50%;
   min-width: 100px;
-  border: 1px solid rgb(196, 205, 208);
+  /*border: 1px solid rgb(196, 205, 208);*/
+
+
 }
 
 #container-left {
@@ -72,7 +75,7 @@ body {
 .CodeMirror {
   height: 278.5px;
   min-height: 59px;
-  max-height: 499px;
+  max-height: 500px;
   background: rgb(240, 242, 244);
   word-break: break-all;
   width: 100%;
@@ -99,13 +102,25 @@ iframe body {
 
 .logo {
   font-family: Roboto;
-  font-weight: 500;
-  color: rgb(56, 149, 245);
+  font-weight: 100;
+  /*color: #7f94a1;*/
+  color: rgb(25, 25, 25);
+  opacity: 0.8;
   margin: 0;
   margin-left: 50px;
   vertical-align: middle;
   line-height: 55px;
+  /*font-family: Gochi Hand, cursive;*/
+  /*font-family: Special Elite, cursive;*/
+  /*font-family: Rancho, cursive;*/
+  /*font-family: Covered By Your Grace, cursive;*/
+  font-size: xx-large;
+  /*font-family: 'Crafty Girls', cursive;*/
+}
 
+#js {
+  font-weight: 400;
+  /*color: rgb(56, 149, 245);*/
 }
 
 
@@ -174,4 +189,11 @@ iframe body {
   border: solid 1px rgba(255, 255, 255, 0);
   color: #7f94a1;
   top: 347px;
+}
+
+.CodeMirror-linenumber {
+    padding: 5px 8px 0 5px;
+    color: #c8d2d7;
+    font-size: 10px;
+    font-family: Roboto;
 }

@@ -26,8 +26,10 @@ class HorizontalSplit extends Component {
 
   leftResize(split, container, topPane, bottomPane) {
     container.addEventListener('mousemove', function listener(e1) {
-      topPane.style.height = `${e1.pageY - container.offsetTop - 1}px`;
-      bottomPane.style.height = `${(container.offsetHeight + container.offsetTop - 2) - e1.pageY}px`;
+      topPane.style.height = `${e1.pageY - container.offsetTop - 1.5}px`;
+      topPane.setAttribute('heightDivider', container.offsetHeight / (e1.pageY - container.offsetTop - 1));
+      bottomPane.style.height = `${(container.offsetHeight + container.offsetTop - 1.5) - e1.pageY}px`;
+      bottomPane.setAttribute('heightDivider', container.offsetHeight / ((container.offsetHeight + container.offsetTop - 2) - e1.pageY))
       container.addEventListener('mouseup', (e2) => {
         container.removeEventListener('mousemove', listener);
       });
@@ -39,8 +41,11 @@ class HorizontalSplit extends Component {
     function listener(e1) {
       pageE = e1;
       topPane.style.height = `${e1.pageY - container.offsetTop}px`;
+      topPane.setAttribute('heightDivider', container.offsetHeight / (e1.pageY - container.offsetTop));
       bottomPane.style.height = `${(container.offsetHeight + container.offsetTop) - e1.pageY}px`;
+      bottomPane.setAttribute('heightDivider', container.offsetHeight / ((container.offsetHeight + container.offsetTop) - e1.pageY));
       iframe.style.height = `${(container.offsetHeight + container.offsetTop) - e1.pageY}px`;
+      iframe.setAttribute('heightDivider', container.offsetHeight / ((container.offsetHeight + container.offsetTop) - e1.pageY));
       container.addEventListener('mouseup', (e2) => {
         container.removeEventListener('mousemove', listener);
         iframe.contentDocument.removeEventListener('mousemove', listener1);
@@ -48,8 +53,11 @@ class HorizontalSplit extends Component {
     }
     function listener1(e1) {
       topPane.style.height = `${topPane.offsetHeight + e1.offsetY}px`;
+      topPane.setAttribute('heightDivider', container.offsetHeight / (topPane.offsetHeight + e1.offsetY));
       bottomPane.style.height = `${(container.offsetHeight + container.offsetTop) - (pageE.pageY - e1.pageY)}px`;
+      bottomPane.setAttribute('heightDivider', container.offsetHeight / ((container.offsetHeight + container.offsetTop) - (pageE.pageY - e1.pageY)));
       iframe.style.height = `${(container.offsetHeight + container.offsetTop) - (pageE.pageY - e1.pageY)}px`;
+      iframe.setAttribute('heightDivider', container.offsetHeight / ((container.offsetHeight + container.offsetTop) - (pageE.pageY - e1.pageY)));
       iframe.contentDocument.addEventListener('mouseup', (e2) => {
         iframe.contentDocument.removeEventListener('mousemove', listener1);
         container.removeEventListener('mousemove', listener);
