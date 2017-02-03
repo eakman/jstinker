@@ -3,6 +3,7 @@ import CodeMirror from 'react-codemirror';
 import NavBar from './navbar';
 import HorizontalSplit from './splitters/horizontal_split';
 import VerticalSplit from './splitters/vertical_split';
+import SideBar from './side_bar';
 import './App.css';
 require('../node_modules/codemirror/lib/codemirror.css');
 require('../node_modules/codemirror/mode/javascript/javascript');
@@ -70,9 +71,7 @@ class App extends Component {
         <NavBar html={this.state.html}
           javascript={this.state.javascript}
           css={this.state.css}></NavBar>
-        <aside className="side-bar">
-
-        </aside>
+        <SideBar />
         <div id="pane-window">
           <div className="container" id="container-left">
             <CodeMirror value={this.state.html} options={{

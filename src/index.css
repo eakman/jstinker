@@ -12,12 +12,36 @@ body {
   /*box-shadow: -1px 1px 4px #88886D;*/
   box-shadow: 0 0 5px rgba(57, 70, 78, 0.2);
 }
+.side-bar {
+  display: block;
+  height: 1000px;
+  width: 14%;
+  float: left;
+  padding: 20px;
+  box-sizing: padding-box;
+  font-size: 14px;
+}
+
+.side-bar p {
+  font-family: Roboto;
+  font-weight: 100;
+  margin-top: 5px;
+  color: rgb(127, 148, 161);
+}
+
+.side-bar h3 {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
 
 #pane-window {
+
   display: flex;
   flex-direction: row;
   float: right;
-  width: 85%;
+  width: 80%;
   background: rgb(240, 242, 244);
   border: 1px solid rgb(228, 221, 233);
   border-top: none;
@@ -96,7 +120,7 @@ iframe {
 iframe body {
   height: 279px;
   min-height: 59px;
-  max-height: 499px;
+
   width: 100%;
 }
 
