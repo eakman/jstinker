@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { leftResize, rightResize } from '../util/horizontal_resize';
+import { leftResize, rightResize } from '../util/horizontal_resizer';
 
 class HorizontalSplit extends Component {
   constructor() {
