@@ -5,7 +5,6 @@ import HorizontalSplit from './splitters/horizontal_split';
 import VerticalSplit from './splitters/vertical_split';
 import SideBar from './bars/side_bar';
 import { htmlContent, jSContent, cssContent } from './util/initial_window_content';
-import './App.css';
 require('../node_modules/codemirror/lib/codemirror.css');
 require('../node_modules/codemirror/mode/javascript/javascript');
 require('../node_modules/codemirror/mode/css/css');
