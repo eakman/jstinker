@@ -17,10 +17,8 @@ class HorizontalSplit extends Component {
     const iframe = document.getElementsByTagName('iframe')[0];
     if (bottomPane.className.split(' ')[0] === "CodeMirror") {
       leftResize(split, container, topPane, bottomPane);
-
     } else {
       rightResize(split, container, topPane, bottomPane, iframe);
-
     }
   }
 
