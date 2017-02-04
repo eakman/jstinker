@@ -1,6 +1,20 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const containers = Array.from(document.getElementsByClassName('container'));
+  const codeMirrors = Array.from(document.getElementsByClassName('CodeMirror'));
+  const splitVert = document.getElementById('split-vert');
+  const panes = Array.from(document.getElementsByClassName('pane'));
+  const iframe = document.getElementsByTagName('iframe')[0];
+
+  labelPanes();
+
+  setInitialHeight(containers, codeMirrors, splitVert, panes, iframe);
+
+  handleWindowResize(containers, codeMirrors, splitVert, panes, iframe);
+});
+
 function labelPanes() {
   const inners = ["HTML", "JavaScript", "CSS", "Result"];
-  const editors = Array.from(document.getElementsByClassName('CodeMirror'))
+  const editors = Array.from(document.getElementsByClassName('CodeMirror'));
   editors.push(document.getElementsByClassName('pane')[0]);
   editors.forEach((el, idx) => {
     const childEl = document.createElement('span');
@@ -53,18 +67,3 @@ function handleWindowResize(containers, codeMirrors, splitVert, panes, iframe) {
     iframe.maxHeight = (newHeight - 59) + 'px';
   });
 }
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const containers = Array.from(document.getElementsByClassName('container'));
-  const codeMirrors = Array.from(document.getElementsByClassName('CodeMirror'));
-  const splitVert = document.getElementById('split-vert');
-  const panes = Array.from(document.getElementsByClassName('pane'));
-  const iframe = document.getElementsByTagName('iframe')[0];
-
-  labelPanes();
-
-  setInitialHeight(containers, codeMirrors, splitVert, panes, iframe);
-
-  handleWindowResize(containers, codeMirrors, splitVert, panes, iframe);
-});
