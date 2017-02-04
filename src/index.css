@@ -9,9 +9,9 @@ body {
   font-size: 13px;
   position: relative;
   z-index: 300;
-  /*box-shadow: -1px 1px 4px #88886D;*/
   box-shadow: 0 0 5px rgba(57, 70, 78, 0.2);
 }
+
 .side-bar {
   display: block;
   height: 1000px;
@@ -36,8 +36,34 @@ body {
   margin-bottom: 5px;
 }
 
-#pane-window {
+.side-bar ul {
+  margin-top: 5px;
+  padding: 0;
+}
 
+.side-bar ul li {
+  list-style: none;
+  padding: 0;
+  font-family: Roboto;
+  font-weight: 100;
+  margin-top: 5px;
+  color: rgb(127, 148, 161);
+  word-break: break-all;
+}
+
+.side-bar a {
+  text-decoration: none;
+  color: rgb(127, 148, 161);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 700px){
+  .side-bar {
+    display: none;
+  }
+}
+
+#pane-window {
   display: flex;
   flex-direction: row;
   float: right;
@@ -63,14 +89,10 @@ body {
   height: 560px;
   width: 50%;
   min-width: 100px;
-  /*border: 1px solid rgb(196, 205, 208);*/
-
-
 }
 
 #container-left {
   border-right: none;
-
 }
 
 #container-right {
@@ -108,6 +130,7 @@ body {
 .CodeMirror-line {
   word-break: break-all;
 }
+
 .ReactCodeMirror {
   word-break: break-all;
 }
@@ -115,38 +138,30 @@ body {
 iframe {
   border: 0 !important;
   display: block;
+  user-select: none;
 }
 
 iframe body {
   height: 279px;
   min-height: 59px;
-
   width: 100%;
 }
 
 .logo {
   font-family: Roboto;
   font-weight: 100;
-  /*color: #7f94a1;*/
   color: rgb(25, 25, 25);
   opacity: 0.8;
   margin: 0;
   margin-left: 50px;
   vertical-align: middle;
   line-height: 55px;
-  /*font-family: Gochi Hand, cursive;*/
-  /*font-family: Special Elite, cursive;*/
-  /*font-family: Rancho, cursive;*/
-  /*font-family: Covered By Your Grace, cursive;*/
   font-size: xx-large;
-  /*font-family: 'Crafty Girls', cursive;*/
 }
 
 #js {
   font-weight: 400;
-  /*color: rgb(56, 149, 245);*/
 }
-
 
 #run {
   font-family: Roboto;
@@ -216,8 +231,8 @@ iframe body {
 }
 
 .CodeMirror-linenumber {
-    padding: 5px 8px 0 5px;
-    color: #c8d2d7;
-    font-size: 10px;
-    font-family: Roboto;
+  padding: 5px 8px 0 5px;
+  color: #c8d2d7;
+  font-size: 10px;
+  font-family: Roboto;
 }

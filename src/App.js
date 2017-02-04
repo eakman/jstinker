@@ -1,45 +1,23 @@
 import React, { Component } from 'react';
 import CodeMirror from 'react-codemirror';
-import NavBar from './navbar';
+import NavBar from './bars/navbar';
 import HorizontalSplit from './splitters/horizontal_split';
 import VerticalSplit from './splitters/vertical_split';
-import SideBar from './side_bar';
+import SideBar from './bars/side_bar';
+import { htmlContent, jSContent, cssContent } from './util/initial_window_content';
 import './App.css';
 require('../node_modules/codemirror/lib/codemirror.css');
 require('../node_modules/codemirror/mode/javascript/javascript');
 require('../node_modules/codemirror/mode/css/css');
 require('../node_modules/codemirror/mode/htmlembedded/htmlembedded');
 
-const htmlString = "<div id='my-div'></div>";
-
-const javaScriptString =
-"const myDiv = document.getElementById('my-div');\n\n" +
-"window.setInterval(() => {\n" +
-"   myDiv.style.left = `${(myDiv.offsetLeft + 1) % document.body.offsetWidth}`;\n" +
-"}, 30);\n \n" +
-"window.setInterval(() => {\n" +
-"   myDiv.style.top = `${ myDiv.offsetTop * (100 * Math.random()) % (document.body.offsetHeight - myDiv.offsetHeight)}px`;\n" +
-"}, 1000);";
-
-const cssString =
-`#my-div {
-  display: block;
-  position: relative;
-  height: 40px;
-  width: 40px;
-  border: 1px solid black;
-  border-radius: 50%;
-  transition: top 2s ease 0s;
-  top: 0;
-}`;
-
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      html: htmlString,
-      javascript: javaScriptString,
-      css: cssString
+      html: htmlContent,
+      javascript: jSContent,
+      css: cssContent
     }
     this.updateHTML = this.updateHTML.bind(this);
     this.updateJS = this.updateJS.bind(this);
@@ -63,7 +41,6 @@ class App extends Component {
         css: newCode,
     });
   }
-
 
   render() {
     return (

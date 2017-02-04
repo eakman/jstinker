@@ -19,17 +19,17 @@ function setInitialHeight(containers, codeMirrors, splitVert, panes, iframe) {
 
   codeMirrors.forEach((el) => {
     el.style.height = (((window.innerHeight - 55) / 2) - 1.5) + 'px';
-    el.setAttribute('heightDivider', 2);
+    el.setAttribute('heightMultiplier', 2);
     el.style.maxHeight = ((window.innerHeight - 55) - 59)+ 'px';
   });
 
   panes.forEach((el) => {
     el.style.height = (((window.innerHeight - 55) / 2) - 1.5) + 'px';
-    el.setAttribute('heightDivider', 2);
+    el.setAttribute('heightMultiplier', 2);
   });
 
   iframe.contentDocument.body.style.height = (((window.innerHeight - 55) / 2) - 1.5) + 'px';
-  iframe.setAttribute('heightDivider', 2);
+  iframe.setAttribute('heightMultiplier', 2);
   iframe.style.maxHeight = ((window.innerHeight - 55) - 59)+ 'px';
 }
 
@@ -42,14 +42,14 @@ function handleWindowResize(containers, codeMirrors, splitVert, panes, iframe) {
     splitVert.style.height = newHeight + 'px';
 
     codeMirrors.forEach((el) => {
-      el.style.height = (newHeight) / el.attributes.heightDivider.value + 'px';
+      el.style.height = (newHeight) / el.attributes.heightMultiplier.value + 'px';
       el.style.maxHeight = (newHeight - 59) + 'px';
     });
 
     panes.forEach((el) => {
-      el.style.height = (newHeight) / el.attributes.heightDivider.value + 'px';
+      el.style.height = (newHeight) / el.attributes.heightMultiplier.value + 'px';
     });
-    iframe.style.height = (newHeight) / iframe.attributes.heightDivider.value + 'px';
+    iframe.style.height = (newHeight) / iframe.attributes.heightMultiplier.value + 'px';
     iframe.maxHeight = (newHeight - 59) + 'px';
   });
 }

@@ -18,7 +18,6 @@ class NavBar extends Component {
     this.clearOldHtml();
     const style = document.createElement('style');
     style.innerHTML = this.props.css;
-
     const script = document.createElement('script');
     const inner = `function doThis() { ${this.props.javascript} };
                     doThis();`
@@ -27,7 +26,6 @@ class NavBar extends Component {
     body.innerHTML = this.props.html;
     body.appendChild(style);
     body.appendChild(script);
-
   }
 
   render () {
