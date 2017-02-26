@@ -40,6 +40,7 @@ function setInitialHeight(containers, codeMirrors, splitVert, panes, iframe) {
   panes.forEach((el) => {
     el.style.height = (((window.innerHeight - 55) / 2) - 1.5) + 'px';
     el.setAttribute('heightMultiplier', 2);
+    el.style.maxHeight = ((window.innerHeight - 55) - 59)+ 'px';
   });
 
   iframe.contentDocument.body.style.height = (((window.innerHeight - 55) / 2) - 1.5) + 'px';
@@ -64,6 +65,8 @@ function handleWindowResize(containers, codeMirrors, splitVert, panes, iframe) {
       el.style.height = (newHeight) / el.attributes.heightMultiplier.value + 'px';
     });
     iframe.style.height = (newHeight) / iframe.attributes.heightMultiplier.value + 'px';
+    iframe.contentWindow.document.body.style.height = (newHeight) / iframe.attributes.heightMultiplier.value + 'px';
+    iframe.contentWindow.document.body.maxHeight = (newHeight - 59) + 'px';
     iframe.maxHeight = (newHeight - 59) + 'px';
   });
 }

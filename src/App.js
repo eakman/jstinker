@@ -42,7 +42,7 @@ class App extends Component {
   }
 
   render() {
-    return (
+      return (
       <div>
         <NavBar html={this.state.html}
           javascript={this.state.javascript}

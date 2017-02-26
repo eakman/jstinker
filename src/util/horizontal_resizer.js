@@ -26,6 +26,7 @@ export const rightResize = function(split, container, topPane, bottomPane, ifram
     bottomPane.style.height = `${newBottomPaneHeight}px`;
     bottomPane.setAttribute('heightMultiplier', containerHeight / newBottomPaneHeight);
     iframe.style.height = `${newBottomPaneHeight}px`;
+    iframe.contentWindow.document.body.style.height = `${newBottomPaneHeight}px`;
     iframe.setAttribute('heightMultiplier', containerHeight / newBottomPaneHeight);
     container.addEventListener('mouseup', (e2) => {
       container.removeEventListener('mousemove', listener);
@@ -41,6 +42,7 @@ export const rightResize = function(split, container, topPane, bottomPane, ifram
     bottomPane.style.height = `${newbottomPaneHeight}px`;
     bottomPane.setAttribute('heightMultiplier', containerHeight / newbottomPaneHeight);
     iframe.style.height = `${newbottomPaneHeight}px`;
+    iframe.contentWindow.document.body.style.height = `${newbottomPaneHeight}px`;
     iframe.setAttribute('heightMultiplier', containerHeight / newbottomPaneHeight);
     iframe.contentDocument.addEventListener('mouseup', (e2) => {
       iframe.contentDocument.removeEventListener('mousemove', listener1);
